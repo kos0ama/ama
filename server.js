@@ -92,26 +92,26 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
-// JSONŒ`®‚Å•¶š—ñ‚ğ•Ô‚·
+// JSONå½¢å¼ã§æ–‡å­—åˆ—ã‚’è¿”ã™
 app.get('/hello', function(req, res, next) {
   var param = {"result":"Hello World !"};
   res.header('Content-Type', 'application/json; charset=utf-8')
   res.send(param);
 });
-// [POST]JSONŒ`®‚Å•¶š—ñ‚ğ•Ô‚·
+// [POST]JSONå½¢å¼ã§æ–‡å­—åˆ—ã‚’è¿”ã™
 app.post('/ewt2/:place', function(req, res, next) {
   //var param = {"ewt":req.params.place};
-  var param = {"fulfillmentMessages": {"text": {"text": "‘Ò‚¿ŠÔ‚Í17•b‚Å‚·B"}}};
+  var param = {"fulfillmentMessages": {"text": {"text": "å¾…ã¡æ™‚é–“ã¯17ç§’ã§ã™ã€‚"}}};
   res.header('Content-Type', 'application/json; charset=utf-8')
   res.send(param);
 });
-// [POST]JSONŒ`®‚Å•¶š—ñ‚ğ•Ô‚·
-  app.post('/ewt/:place', function(req, res, next) {
+// [POST]JSONå½¢å¼ã§æ–‡å­—åˆ—ã‚’è¿”ã™
+app.post('/ewt/:place', function(req, res, next) {
   //var param = {"followupEventInput": {"name": "LOCAL_WEBHOOK_RECEIVED","parameters": {"ewtrec": "54","queuesrec": "order skill"}}};
   //var param = {"followupEventInput": {"name": "LOCAL_WEBHOOK_RECEIVED","parameters": {"ewtrec": "54","queuesrec": req.body.queryResult.parameters['queues']}}};
-  //‘Ò‚¿ŠÔ‚ğ—”‚Åæ“¾
+  //å¾…ã¡æ™‚é–“ã‚’ä¹±æ•°ã§å–å¾—
   var sEWT = Math.floor( Math.random() * (30 - 0 + 1) ) + 0;
-  //PureCloud‚©‚çEWT‚ğæ“¾
+  //PureCloudã‹ã‚‰EWTã‚’å–å¾—
   var oauth_login_url = 'https://login.salesforce.com';
   var oauth_client_id = '*****';
   var oauth_client_username = '*****';
@@ -119,7 +119,7 @@ app.post('/ewt2/:place', function(req, res, next) {
   var oauth_client_authenticate_password = '*****';
   
   
-  //Response‚ğ¶¬A‘—M
+  //Responseã‚’ç”Ÿæˆã€é€ä¿¡
   var param = {"followupEventInput": {"name": "LOCAL_WEBHOOK_RECEIVED","parameters": {"ewtrec": sEWT,"queuesrec": req.body.queryResult.parameters['queues']}}};
   res.header('Content-Type', 'application/json; charset=utf-8')
   res.send(param);
