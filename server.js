@@ -107,10 +107,9 @@ app.post('/ewt2/:place', function(req, res, next) {
 });
 // [POST]JSON形式で文字列を返す
 app.post('/ewt/:place', function(req, res, next) {
-  //var param = {"followupEventInput": {"name": "LOCAL_WEBHOOK_RECEIVED","parameters": {"ewtrec": "54","queuesrec": "order skill"}}};
-  //var param = {"followupEventInput": {"name": "LOCAL_WEBHOOK_RECEIVED","parameters": {"ewtrec": "54","queuesrec": req.body.queryResult.parameters['queues']}}};
   //待ち時間を乱数で取得
-  var sEWT = Math.floor( Math.random() * (30 - 0 + 1) ) + 0;
+  //var sEWT = Math.floor( Math.random() * (30 - 0 + 1) ) + 0;
+  var sEWT = 15;
   //PureCloudからEWTを取得
   var oauth_login_url = 'https://login.salesforce.com';
   var oauth_client_id = '*****';
