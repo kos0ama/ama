@@ -92,6 +92,14 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
+// JSONŒ`Ž®‚Å•¶Žš—ñ‚ð•Ô‚·
+app.get('/hello', function(req, res, next) {
+  var param = {"result":"Hello World !"};
+  res.header('Content-Type', 'application/json; charset=utf-8')
+  res.send(param);
+});
+
+
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
