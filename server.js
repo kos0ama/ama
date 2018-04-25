@@ -2,7 +2,7 @@
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan'),
-    request = require('request').
+    request = require('request'),
     bodyParser = require('body-parser');
     
 Object.assign=require('object-assign')
