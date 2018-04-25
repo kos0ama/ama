@@ -1,7 +1,9 @@
 //  OpenShift sample Node application
 var express = require('express'),
     app     = express(),
-    morgan  = require('morgan');
+    morgan  = require('morgan'),
+    request = require('request').
+    bodyParser = require('body-parser');
     
 Object.assign=require('object-assign')
 
@@ -108,8 +110,7 @@ app.post('/ewt2/:place', function(req, res, next) {
 // [POST]JSON形式で文字列を返す
 app.post('/ewt/:place', function(req, res, next) {
   //待ち時間を乱数で取得
-  //var sEWT = Math.floor( Math.random() * (30 - 0 + 1) ) + 0;
-  var sEWT = 15;
+  var sEWT = Math.floor( Math.random() * (30 - 0 + 1) ) + 0;
   //PureCloudからEWTを取得
   var oauth_login_url = 'https://login.salesforce.com';
   var oauth_client_id = '*****';
