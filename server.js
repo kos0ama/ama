@@ -1,6 +1,7 @@
 //  OpenShift sample Node application
 var express = require('express'),
     app     = express(),
+    aaa     = require('./aaa.js'),
     morgan  = require('morgan'),
     request = require('request'),
     bodyParser = require('body-parser');
