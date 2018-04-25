@@ -98,6 +98,33 @@ app.get('/hello', function(req, res, next) {
   res.header('Content-Type', 'application/json; charset=utf-8')
   res.send(param);
 });
+// [POST]JSON形式で文字列を返す
+app.post('/ewt2/:place', function(req, res, next) {
+  //var param = {"ewt":req.params.place};
+  var param = {"fulfillmentMessages": {"text": {"text": "待ち時間は17秒です。"}}};
+  res.header('Content-Type', 'application/json; charset=utf-8')
+  res.send(param);
+});
+// [POST]JSON形式で文字列を返す
+  app.post('/ewt/:place', function(req, res, next) {
+  //var param = {"followupEventInput": {"name": "LOCAL_WEBHOOK_RECEIVED","parameters": {"ewtrec": "54","queuesrec": "order skill"}}};
+  //var param = {"followupEventInput": {"name": "LOCAL_WEBHOOK_RECEIVED","parameters": {"ewtrec": "54","queuesrec": req.body.queryResult.parameters['queues']}}};
+  //待ち時間を乱数で取得
+  var sEWT = Math.floor( Math.random() * (30 - 0 + 1) ) + 0;
+  //PureCloudからEWTを取得
+  var oauth_login_url = 'https://login.salesforce.com';
+  var oauth_client_id = '*****';
+  var oauth_client_username = '*****';
+  var oauth_client_secret = '*****';
+  var oauth_client_authenticate_password = '*****';
+  
+  
+  //Responseを生成、送信
+  var param = {"followupEventInput": {"name": "LOCAL_WEBHOOK_RECEIVED","parameters": {"ewtrec": sEWT,"queuesrec": req.body.queryResult.parameters['queues']}}};
+  res.header('Content-Type', 'application/json; charset=utf-8')
+  res.send(param);
+});
+
 
 
 // error handling
